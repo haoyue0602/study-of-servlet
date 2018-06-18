@@ -1,0 +1,24 @@
+package hy0602_java_servlet;
+
+import hy0602_java_servlet.UserDao;
+import hy0602_java_servlet.User;
+
+/**
+ * 业务逻辑层--用户操作
+ */
+public class UserService {
+
+	//创建数据库访问层对象
+	private UserDao userdao = new UserDao();
+	/**
+	 * 添加用户操作
+	 */
+	public void addUser(User user){
+		userdao.addUser(user);
+	}
+  /**
+	 * 后可补充：删除用户操作 deleteUser（）
+   *          修改用户信息操作 updateUser（）
+   *          查询用户信息操作 checkUser（）
+	 */
+}
