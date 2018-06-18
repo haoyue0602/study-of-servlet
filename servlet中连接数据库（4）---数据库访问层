@@ -11,17 +11,17 @@ public class UserDao {
 	 * 实现用户的添加操作
 	 */
 	public void addUser(User user){
-    //SQL语句
-		String sql = "insert into t_user(id,email,pwd,username,birthday,hobby) "
-				+ " values (mysequence.nextval,"
-				+ "'"+user.getEmail()+"','"+user.getPwd()+"','"+user.getUsername()
-				+"','"+user.getBirthday()+"','"+user.getHobby()+"')";
-    //调用DBHelp对象的静态方法    
-		DBHelp.executeSql(sql);
-	}
+    	//SQL语句
+	String sql = "insert into t_user(id,email,pwd,username,birthday,hobby) "
+		+ " values (mysequence.nextval,"
+		+ "'"+user.getEmail()+"','"+user.getPwd()+"','"+user.getUsername()
+		+"','"+user.getBirthday()+"','"+user.getHobby()+"')";
+   	//调用DBHelp对象的静态方法    
+	DBHelp.executeSql(sql);
+}
   
   /**
-	 *可补充 ：用户的删除操作 deleteUser()
+   *可补充 ：用户的删除操作 deleteUser()
    *        用户信息的修改操作 updateUser()
    *        用户信息的查询操作 checkUser()
    */
