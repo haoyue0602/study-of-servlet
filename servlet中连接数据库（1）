@@ -1,0 +1,69 @@
+package hy0602_java_serlvet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.cissst.software.model.User;
+import com.cissst.software.service.UserService;
+
+
+public class RegServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		execute(request,response);
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		execute(request,response);
+	}
+	
+	private void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//1.获取客户端提交信息
+    //uesr包括属性email,username,password,gender等属性值
+    
+		String email = request.getParameter("myemail");
+		String pwd = request.getParameter("pwd");
+		String username = request.getParameter("username");
+		String gender = request.getParameter("gender");
+		String year = request.getParameter("year");
+		String month = request.getParameter("month");
+		String day = request.getParameter("day");
+		String[] values = request.getParameterValues("hobby");
+		
+		User user = new User();
+		user.setEmail(email);
+		user.setPwd(pwd);
+		user.setUsername(username);
+		user.setGender(gender);
+		user.setBirthday(year+"-"+month+"-"+day);
+		if(values!=null && values.length>0){
+			StringBuffer sb = new StringBuffer();
+			for(String value : values){
+				sb.append(value).append(",");
+			}
+			user.setHobby(sb.substring(0, sb.length()-1));
+		}
+		
+		//2.创建业务逻辑层对象
+		UserService userService = new UserService();
+		//3.调用业务逻辑层中的添加方法
+		userService.addUser(user);
+		
+		PrintWriter out = response.getWriter();
+		out.print("success");
+		out.close();
+		
+		
+	}
+	
+	
+
+}
