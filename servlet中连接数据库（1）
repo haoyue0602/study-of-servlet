@@ -27,7 +27,7 @@ public class RegServlet extends HttpServlet {
 	
 	private void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//1.获取客户端提交信息
-    //uesr包括属性email,username,password,gender等属性值
+    		//uesr包括属性email,username,password,gender等属性值
     
 		String email = request.getParameter("myemail");
 		String pwd = request.getParameter("pwd");
