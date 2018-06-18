@@ -16,9 +16,10 @@ public class UserService {
 	public void addUser(User user){
 		userdao.addUser(user);
 	}
-  /**
-	 * 后可补充：删除用户操作 deleteUser（）
-   *          修改用户信息操作 updateUser（）
-   *          查询用户信息操作 checkUser（）
-	 */
+  	/**
+   	 * 后可补充：删除用户操作 deleteUser（）
+	 * 修改用户信息操作 updateUser（）
+   	 *查询用户信息操作 checkUser（）
+   	 */
+	 
 }
